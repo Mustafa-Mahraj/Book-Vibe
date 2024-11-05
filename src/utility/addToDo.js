@@ -1,4 +1,3 @@
-import { json } from "react-router-dom";
 
 const getStoredReadList = () => {
     const storedListSrt = localStorage.getItem('read-list');
@@ -23,4 +22,28 @@ const addToStoreReadList = (id) => {
     }
 }
 
-export { addToStoreReadList }
+const getStoredWishList = () => {
+    const storedWishListSrt = localStorage.getItem('wish-list');
+    if (storedWishListSrt) {
+        const storedWishList = JSON.parse(storedWishListSrt);
+        return storedWishList;
+    }
+    else {
+        return [];
+    }
+}
+
+const addToStoreWishList = (id) => {
+    const storedWishList = getStoredWishList()
+    if (storedWishList.includes(id)) {
+        alert(id + ' already exists in the read list')
+    }
+    else {
+        storedWishList.push(id)
+        const storedWishListSrt = JSON.stringify(storedWishList);
+        localStorage.setItem('read-list', storedWishListSrt)
+    }
+}
+
+
+export { addToStoreReadList, addToStoreWishList, getStoredReadList }

@@ -11,6 +11,8 @@ import ErrorPage from './components/ErrorPgae/ErrorPage';
 import DashBoard from './components/DashBoard/DashBoard';
 import BookDetails from './components/bookDetails/BookDetails';
 import ListedBooks from './components/listedBooks/ListedBooks';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const router = createBrowserRouter([
   {
@@ -44,5 +46,6 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <RouterProvider router={router}></RouterProvider>
+    <ToastContainer></ToastContainer>
   </StrictMode>,
 )
